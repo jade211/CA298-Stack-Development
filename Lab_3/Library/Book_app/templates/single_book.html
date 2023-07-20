@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+    
+{% block title %}<h3>{{book.title}}</h3>{% endblock %}
+
+
+{% block content %}
+<div class="card border-dark mb-3" style="max-width: 18rem;">
+    <div class="card-header"><h2>{{book.title}}</h2></div>
+
+    <div class="card-body text-dark">
+        <h5 class="card-title">Book Author: {{book.author }}</h5>
+        <p><strong>Year: </strong>{{book.year }}</p>
+        <p><strong>Genre/Category: </strong>{{book.genre}}</p>
+        <p><strong>Availability: </strong>{{book.inventory_number}}</p>
+    
+      {% for b in borrowing %}
+      <p>Currently borrowed by: <a href="{% url 'customer' b.customer.id %}">{{ b.customer.name }}</a></p>
+      {% endfor %}
+    </div>
+</div>
+<a href="{% url 'all_books' %}">Back to Books Available</a>
+{% endblock %}
+
