@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head></head>
+    <body>
+        <form id="myform">
+            <label for="first-number-input">Number 1: </label>
+            <input id="first-number-entry" name="first-number-input" type="text" required placeholder="Enter a number"/>
+            
+            <label for="second-number-input">Number 2: </label>
+            <input id="second-number-entry" name="second-number-input" type="text" required placeholder="Enter a number"/>
+            
+            <button type="submit">Submit</button>
+        </form>
+        <script>
+            function formValidator(event){
+                event.preventDefault();
+                let number_1 = document.getElementById('first-number-entry').value;
+                let number_2 = document.getElementById('second-number-entry').value;
+                if (number_1 == '' || number_2 == '') {
+                    alert("Please fill in both fields");
+                    return;
+                }
+
+                else if (isNaN(number_1) || isNaN(number_2)){
+                    alert("Please enter a number");
+                    return;
+                }
+
+                else{
+                    let result = parseInt(number_1) + parseInt(number_2);
+                    // let result = Number(number_1) + Number(number_2);
+                    document.body.innerHTML += '<p>' + number_1 + ' + ' + number_2 + ' = ' + result + '</p>';
+                }
+            }
+
+            let myform = document.getElementById("myform");
+            myform.addEventListener('submit', formValidator);
+
+        
+
+        </script>
+    </body>
+
+</html>
+

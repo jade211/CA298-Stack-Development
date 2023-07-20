@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head></head>
+    <body>
+        <div>
+            <img src="" id="random-dog" height="700" width="650">
+            <button id="get-dog-image">Click here</button>
+        </div>
+        <script>
+            let image = document.getElementById("random-dog");
+            let button = document.getElementById("get-dog-image");
+            function randomdog(){
+                fetch("https://dog.ceo/api/breeds/image/random") // link to the website
+                .then(response => response.json())
+                .then(json=>{
+                    // console.log(json);
+                    image.src = json.message;              
+                });
+
+            }
+            button.addEventListener('click', randomdog);
+            
+    
+        
+        </script>
+    </body>
+</html>
+
+</html>

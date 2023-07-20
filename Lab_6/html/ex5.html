@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head></head>
+    <body>
+        <div id="container">
+
+            <ul>
+
+            </ul>
+
+
+        </div>
+        <script>
+            fetch("https://swapi.dev/api/planets/1")
+            .then(resp => resp.json())
+            .then(json=>{
+                // what to do with returned data
+
+                console.log('Name: ', json.name);
+                console.log('Diameter: ', json.diameter);
+                console.log('Climate: ', json.climate);
+                console.log('Terrain: ', json.terrain);
+                console.log('Population: ', json.population);
+        });
+        </script>
+    </body>
+</html>
